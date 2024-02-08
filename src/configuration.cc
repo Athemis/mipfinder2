@@ -47,12 +47,12 @@ void mipfinder::Configuration::parse(const std::filesystem::path& configuration_
   unsigned int config_line_nr{0};
   while(getline(f, line)) {
     ++config_line_nr;
-    if (line.front() == '#') { //Lines marked with # are comments in the configuration file
-      continue;
-    }
-
-    //Empty lines are used for formatting the configuration file
-    if (line.empty()) {
+    if (!line.empty()) {
+      if (line.front() == '#') { //Lines marked with # are comments in the configuration file
+        continue;
+      }
+    } else {
+      //Empty lines are used for formatting the configuration file
       continue;
     }
 
