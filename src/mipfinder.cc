@@ -566,7 +566,7 @@ void Mipfinder::alignHomologousCmips(
                                        + unaligned_file_path.string()
                                        + " -o "
                                        + msa_file_full_path.string()
-                                       + "--threads=" + std::to_string(mipfinder::get_num_cpus());
+                                       + " --threads=" + std::to_string(mipfinder::get_num_cpus());
 
     int sys_call_result = std::system(clustalo_command.c_str()); 
     if (sys_call_result != 0) {
