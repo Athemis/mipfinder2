@@ -70,6 +70,7 @@ namespace mipfinder::hmmer
     std::vector<std::string> command_tokens{std::string{"phmmer"},
 											std::string{"-o /dev/null"},
 											std::string{"--tblout " + results_file.string()},
+                      std::string{"--cpu " + std::to_string(mipfinder::get_num_cpus())},
                                             extra_parameters,
                                             query_file.string(),
                                             database_file.string() };
@@ -93,6 +94,7 @@ namespace mipfinder::hmmer
   {
     const std::vector<std::string> command_tokens{std::string{"hmmbuild"},
 												  std::string{"-o /dev/null"},
+                          std::string{"--cpu " + std::to_string(mipfinder::get_num_cpus())},
                                                   extra_parameters,
                                                   output_file.string(),
                                                   msa_file.string()};
@@ -133,6 +135,7 @@ namespace mipfinder::hmmer
   {
     const std::vector<std::string> command_tokens{std::string{"hmmsearch"},
 												  std::string{"-o /dev/null"},
+                          std::string{"--cpu " + std::to_string(mipfinder::get_num_cpus())},
 												  std::string{"--tblout"},
                                                   results_file.string(),
                                                   profile_file.string(),

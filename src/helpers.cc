@@ -1,4 +1,5 @@
 #include <sstream>
+#include <thread>
 
 #include "helpers.h"
 
@@ -36,6 +37,10 @@ namespace mipfinder {
       current_pos = next_token_pos;
     }
     return split_strings;
+  }
+
+  int get_num_cpus() {
+      return std::thread::hardware_concurrency() != 0 ? static_cast<int>(std::thread::hardware_concurrency()) : 2;
   }
 }
 

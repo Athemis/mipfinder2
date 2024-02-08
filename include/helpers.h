@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <thread>
 
 namespace mipfinder {
   /* Splits a string into tokens based on the delimiter */
@@ -13,6 +14,9 @@ namespace mipfinder {
 
   /* Splits a given string at the delimiter into tokens */
   std::vector<std::string> split(const std::string& str, const char delimiter);
+
+  /* Return the number of available processors. Defaults to 2 */
+  int get_num_cpus();
 
 }
 #endif
