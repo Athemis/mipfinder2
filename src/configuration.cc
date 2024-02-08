@@ -81,7 +81,9 @@ void mipfinder::Configuration::parse(const std::filesystem::path& configuration_
 
     if (std::regex_search(line, matches, param_value_regex)) {
       parameter = matches[1]; 
-      value = matches[2];
+      value = matches[2] ;
+      // Remove carriage return "\r" if present.
+      value.erase(std::remove(value.begin(), value.end(), '\r'), value.end());
 
       //If parameter is not set as optional, value cannot be empty! Leaving it empty is a logic
       //error.
